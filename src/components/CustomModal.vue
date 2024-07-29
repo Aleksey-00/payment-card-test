@@ -1,6 +1,5 @@
 <script setup lang="ts">
 import CloseIcon from '@/components/icons/CloseIcon.vue'
-import { onMounted } from 'vue'
 
 withDefaults(
   defineProps<{
@@ -10,20 +9,14 @@ withDefaults(
     showModal: false
   }
 )
-
-const emits = defineEmits<{
+defineEmits<{
   (e: 'close-modal'): void
 }>()
-
-onMounted(() => {
-  const mainContainer = document.querySelector('body')
-  mainContainer?.addEventListener('click', () => emits('close-modal'))
-})
 </script>
 
 <template>
   <Teleport to="body">
-    <div class="custom-modal" v-if="showModal">
+    <div class="custom-modal" v-if="showModal" @click="$emit('close-modal')">
       <div class="custom-modal__wrapper">
         <CloseIcon class="custom-modal__close" @click="$emit('close-modal')" />
         <slot />

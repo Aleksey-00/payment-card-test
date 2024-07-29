@@ -1,4 +1,3 @@
-export const API_SIGN_IN = 'API_SIGN_IN'
 export const API_GET_PERSONS = 'api/v1/boxes/vesti2'
 export const API_GET_PERSONS_PICTURE = (picId: number): string =>
   `api/v1/pictures/${picId}/bq/redirect`

@@ -61,7 +61,6 @@ const getPerson = async (person: IPersonContent) => {
           v-for="person in localPersonsData"
           :key="person.id"
           @click="getPerson(person)"
-          style="cursor: pointer"
         >
           <img
             :src="`https://api.smotrim.ru/api/v1/pictures/${person.picId}/bq/redirect`"
@@ -101,7 +100,32 @@ const getPerson = async (person: IPersonContent) => {
   </div>
 </template>
 
-<style scoped lang="css">
+<style lang="css">
+.person-info__name__surname {
+  font-size: 40px;
+  line-height: 48.41px;
+  font-weight: 700;
+}
+.persons__item__name,
+.persons__item__surname {
+  font-family: 'RF Dewi', sans-serif;
+  font-size: 14px;
+  line-height: 16px;
+  font-weight: 600;
+}
+.persons__item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  cursor: pointer;
+  text-align: center;
+}
+.person-info__wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
 .person-info__main {
   display: flex;
   align-items: center;
@@ -109,12 +133,12 @@ const getPerson = async (person: IPersonContent) => {
   color: var(--black-color);
   font-size: 40px;
   font-weight: 700;
-  margin-bottom: 40px;
 }
 .person-info__text > p {
   color: var(--black-color);
   font-size: 16px;
   font-weight: 400;
+  line-height: 19.36px;
 }
 .persons-page {
   width: 100%;
@@ -129,13 +153,6 @@ const getPerson = async (person: IPersonContent) => {
   align-items: center;
   text-align: center;
   position: relative;
-}
-.persons__item {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 8px;
-  cursor: pointer;
 }
 .persons__item__img {
   width: 156px;
