@@ -93,7 +93,7 @@ const getPerson = async (person: IPersonContent) => {
               <div class="person-info__name">{{ currPerson?.surname }}</div>
             </div>
           </div>
-          <div class="person-info__text" v-html="personDataBody" />
+          <div class="person-info__text" v-html="personDataBody" v-if="personDataBody" />
         </div>
       </div>
     </CustomModal>
